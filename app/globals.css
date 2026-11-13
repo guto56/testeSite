@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/*
+ * Jacarandá — tokens
+ * Entardecer em Pinheiros: tinta azul-noite, névoa fria, brilho quente das janelas
+ * e o lilás das copas de jacarandá. Status: sálvia (disponível), âmbar (reservado), rosa seco (vendido).
+ */
+@theme {
+  --color-ink: #161c2a;
+  --color-dusk: #222a3f;
+  --color-dusk-2: #2e3651;
+  --color-haze: #e7eaf0;
+  --color-paper: #f4f5f8;
+  --color-line: #c9cedb;
+  --color-mist: #c3c8d6;
+  --color-jacaranda: #8a77c9;
+  --color-jacaranda-deep: #4c3d86;
+  --color-glow: #f0c48a;
+  --color-available: #8cc7a5;
+  --color-reserved: #e3b867;
+  --color-sold: #b97884;
+
+  --font-display: var(--font-italiana), "Didot", serif;
+  --font-sans: var(--font-jost), "Futura", system-ui, sans-serif;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+:root {
+  color-scheme: light;
+  --panel-bg: rgba(30, 36, 58, 0.58);
+  --panel-border: rgba(255, 255, 255, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "pnum";
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-glow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.on-light :focus-visible,
+.on-light:focus-visible {
+  outline-color: var(--color-jacaranda-deep);
+}
+
+.glass {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 30px 60px -30px rgba(8, 10, 24, 0.55);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* rolagem fina para listas dentro do painel */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* elementos que o GSAP revela: começam escondidos sem piscar */
+.gsap-hidden {
+  visibility: hidden;
+}
